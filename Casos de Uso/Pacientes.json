@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "8b5f72db-e6d5-4b31-930e-44a513b063b4",
+    "name": "CRUD FHIR MINSA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48189686"
+  },
+  "item": [
+    {
+      "name": "EJEMPLO.0 - Paciente - List",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://hapi.fhir.org/baseR4/Patient?_count=10&_sort=-_lastUpdated",
+          "protocol": "https",
+          "host": [
+            "hapi",
+            "fhir",
+            "org"
+          ],
+          "path": [
+            "baseR4",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "_count",
+              "value": "10"
+            },
+            {
+              "key": "_sort",
+              "value": "-_lastUpdated"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EJEMPLO.1 - Paciente - Create",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"resourceType\": \"Patient\",\r\n    \"identifier\": [\r\n        {\r\n            \"use\": \"official\",\r\n            \"type\": {\r\n                \"extension\": [\r\n                    {\r\n                        \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais\",\r\n                        \"valueCodeableConcept\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS\",\r\n                                    \"code\": \"PER\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    }\r\n                ],\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/IdspersonaPeru\",\r\n                        \"code\": \"1\",\r\n                        \"display\": \"DNI\"\r\n                    }\r\n                ]\r\n            },\r\n            \"value\": \"12340001\"\r\n        }\r\n    ],\r\n    \"active\": true,\r\n    \"name\": [\r\n        {\r\n            \"family\": \"CASANA\",\r\n            \"_family\": {\r\n                \"extension\": [\r\n                    {\r\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/humanname-mothers-family\",\r\n                        \"valueString\": \"BACCA\"\r\n                    }\r\n                ]\r\n            },\r\n            \"given\": [\r\n                \"MELVA\",\r\n                \"ANA\"\r\n            ]\r\n        }\r\n    ],\r\n    \"telecom\": [\r\n        {\r\n            \"system\": \"email\",\r\n            \"value\": \"prueba@prueba.com.pe\"\r\n        },\r\n        {\r\n            \"system\": \"phone\",\r\n            \"value\": \"+51987654321\",\r\n            \"use\": \"mobile\"\r\n        }\r\n    ],\r\n    \"gender\": \"male\",\r\n    \"birthDate\": \"1985-07-14\",\r\n    \"_birthDate\": {\r\n        \"extension\": [\r\n            {\r\n                \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais\",\r\n                \"valueCodeableConcept\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS\",\r\n                            \"code\": \"PER\"\r\n                        }\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo\",\r\n                \"valueString\": \"150131\"\r\n            }\r\n        ]\r\n    },\r\n    \"address\": [\r\n        {\r\n            \"extension\": [\r\n                {\r\n                    \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo\",\r\n                    \"valueString\": \"150131\"\r\n                }\r\n            ],\r\n            \"line\": [\r\n                \"AV. AREQUIPA 1234 DPTO 502\"\r\n            ],\r\n            \"city\": \"SAN ISIDRO\",\r\n            \"district\": \"SAN ISIDRO\",\r\n            \"state\": \"LIMA\",\r\n            \"country\": \"PER\"\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://hapi.fhir.org/baseR4/Patient",
+          "protocol": "https",
+          "host": [
+            "hapi",
+            "fhir",
+            "org"
+          ],
+          "path": [
+            "baseR4",
+            "Patient"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EJEMPLO.2 - Paciente - Read",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"resourceType\": \"Patient\",\r\n    \"identifier\": [\r\n        {\r\n            \"use\": \"official\",\r\n            \"type\": {\r\n                \"extension\": [\r\n                    {\r\n                        \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais\",\r\n                        \"valueCodeableConcept\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS\",\r\n                                    \"code\": \"PER\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    }\r\n                ],\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/IdspersonaPeru\",\r\n                        \"code\": \"1\",\r\n                        \"display\": \"DNI\"\r\n                    }\r\n                ]\r\n            },\r\n            \"value\": \"12340001\"\r\n        }\r\n    ],\r\n    \"active\": true,\r\n    \"name\": [\r\n        {\r\n            \"family\": \"CASANA\",\r\n            \"_family\": {\r\n                \"extension\": [\r\n                    {\r\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/humanname-mothers-family\",\r\n                        \"valueString\": \"BACCA\"\r\n                    }\r\n                ]\r\n            },\r\n            \"given\": [\r\n                \"MELVA\",\r\n                \"ANA\"\r\n            ]\r\n        }\r\n    ],\r\n    \"telecom\": [\r\n        {\r\n            \"system\": \"email\",\r\n            \"value\": \"prueba@prueba.com.pe\"\r\n        },\r\n        {\r\n            \"system\": \"phone\",\r\n            \"value\": \"+51987654321\",\r\n            \"use\": \"mobile\"\r\n        }\r\n    ],\r\n    \"gender\": \"male\",\r\n    \"birthDate\": \"1985-07-14\",\r\n    \"_birthDate\": {\r\n        \"extension\": [\r\n            {\r\n                \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais\",\r\n                \"valueCodeableConcept\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS\",\r\n                            \"code\": \"PER\"\r\n                        }\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo\",\r\n                \"valueString\": \"150131\"\r\n            }\r\n        ]\r\n    },\r\n    \"address\": [\r\n        {\r\n            \"extension\": [\r\n                {\r\n                    \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo\",\r\n                    \"valueString\": \"150131\"\r\n                }\r\n            ],\r\n            \"line\": [\r\n                \"AV. AREQUIPA 1234 DPTO 502\"\r\n            ],\r\n            \"city\": \"SAN ISIDRO\",\r\n            \"district\": \"SAN ISIDRO\",\r\n            \"state\": \"LIMA\",\r\n            \"country\": \"PER\"\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://hapi.fhir.org/baseR4/Patient/137594034",
+          "protocol": "https",
+          "host": [
+            "hapi",
+            "fhir",
+            "org"
+          ],
+          "path": [
+            "baseR4",
+            "Patient",
+            "137594034"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EJEMPLO.3 - Paciente - Update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"resourceType\": \"Patient\",\r\n    \"id\": \"137594034\",\r\n    \"identifier\": [\r\n        {\r\n            \"use\": \"official\",\r\n            \"type\": {\r\n                \"extension\": [\r\n                    {\r\n                        \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais\",\r\n                        \"valueCodeableConcept\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS\",\r\n                                    \"code\": \"PER\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    }\r\n                ],\r\n                \"coding\": [\r\n                    {\r\n                        \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/IdspersonaPeru\",\r\n                        \"code\": \"1\",\r\n                        \"display\": \"DNI\"\r\n                    }\r\n                ]\r\n            },\r\n            \"value\": \"12340001\"\r\n        }\r\n    ],\r\n    \"active\": true,\r\n    \"name\": [\r\n        {\r\n            \"family\": \"CASANAS\",\r\n            \"_family\": {\r\n                \"extension\": [\r\n                    {\r\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/humanname-mothers-family\",\r\n                        \"valueString\": \"BACCA\"\r\n                    }\r\n                ]\r\n            },\r\n            \"given\": [\r\n                \"MELVA\",\r\n                \"ANA\"\r\n            ]\r\n        }\r\n    ],\r\n    \"telecom\": [\r\n        {\r\n            \"system\": \"email\",\r\n            \"value\": \"prueba@prueba.com.pe\"\r\n        },\r\n        {\r\n            \"system\": \"phone\",\r\n            \"value\": \"+51987654321\",\r\n            \"use\": \"mobile\"\r\n        }\r\n    ],\r\n    \"gender\": \"male\",\r\n    \"birthDate\": \"1985-07-14\",\r\n    \"_birthDate\": {\r\n        \"extension\": [\r\n            {\r\n                \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais\",\r\n                \"valueCodeableConcept\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS\",\r\n                            \"code\": \"PER\"\r\n                        }\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo\",\r\n                \"valueString\": \"150131\"\r\n            }\r\n        ]\r\n    },\r\n    \"address\": [\r\n        {\r\n            \"extension\": [\r\n                {\r\n                    \"url\": \"https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo\",\r\n                    \"valueString\": \"150131\"\r\n                }\r\n            ],\r\n            \"line\": [\r\n                \"AV. AREQUIPA 1234 DPTO 502\"\r\n            ],\r\n            \"city\": \"SAN ISIDRO\",\r\n            \"district\": \"SAN ISIDRO\",\r\n            \"state\": \"LIMA\",\r\n            \"country\": \"PER\"\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://hapi.fhir.org/baseR4/Patient/137594034",
+          "protocol": "https",
+          "host": [
+            "hapi",
+            "fhir",
+            "org"
+          ],
+          "path": [
+            "baseR4",
+            "Patient",
+            "137594034"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EJEMPLO.4 - Paciente - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://hapi.fhir.org/baseR4/Patient/137594034",
+          "protocol": "https",
+          "host": [
+            "hapi",
+            "fhir",
+            "org"
+          ],
+          "path": [
+            "baseR4",
+            "Patient",
+            "137594034"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
