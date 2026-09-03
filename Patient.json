@@ -1,0 +1,98 @@
+{
+    "resourceType": "Patient",
+    "identifier": [
+        {
+            "use": "official",
+            "type": {
+                "extension": [
+                    {
+                        "url": "https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS",
+                                    "code": "PER"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "coding": [
+                    {
+                        "system": "https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/IdspersonaPeru",
+                        "code": "1",
+                        "display": "DNI"
+                    }
+                ]
+            },
+            "value": "12340001"
+        }
+    ],
+    "active": true,
+    "name": [
+        {
+            "family": "CASANA",
+            "_family": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/humanname-mothers-family",
+                        "valueString": "BACCA"
+                    }
+                ]
+            },
+            "given": [
+                "MELVA",
+                "ANA"
+            ]
+        }
+    ],
+    "telecom": [
+        {
+            "system": "email",
+            "value": "prueba@prueba.com.pe"
+        },
+        {
+            "system": "phone",
+            "value": "+51987654321",
+            "use": "mobile"
+        }
+    ],
+    "gender": "female",
+    "birthDate": "1985-07-14",
+    "_birthDate": {
+        "extension": [
+            {
+                "url": "https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-pais",
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "https://www.gob.pe/minsa/RENHICE/fhir/CodeSystem/PaisesCS",
+                            "code": "PER"
+                        }
+                    ]
+                }
+            },
+            {
+                "url": "https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo",
+                "valueString": "150131"
+            }
+        ]
+    },
+    "address": [
+        {
+            "extension": [
+                {
+                    "url": "https://www.gob.pe/minsa/RENHICE/fhir/StructureDefinition/pe-ubigeo",
+                    "valueString": "150131"
+                }
+            ],
+            "line": [
+                "AV. AREQUIPA 1234 DPTO 502"
+            ],
+            "city": "SAN ISIDRO",
+            "district": "SAN ISIDRO",
+            "state": "LIMA",
+            "country": "PER"
+        }
+    ]
+}
